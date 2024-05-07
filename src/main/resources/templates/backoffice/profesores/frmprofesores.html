@@ -17,19 +17,20 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nombres</th>
                 <th scope="col">Apellidos</th>
-                <th scope="col">Fecha de Nacimiento</th>
-                <th scope="col">Dirección</th>
                 <th scope="col">Teléfono</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Especialización</th>
+
             </tr>
             </thead>
             <tbody>
-            <tr th:each="alumno : ${alumnos}">
-                <td th:text="${alumno.id}"></td>
-                <td th:text="${alumno.nombre}"></td>
-                <td th:text="${alumno.apellido}"></td>
-                <td th:text="${alumno.fecha_nacimiento}"></td>
-                <td th:text="${alumno.direccion}"></td>
-                <td th:text="${alumno.telefono}"></td>
+            <tr th:each="profesor : ${profesores}">
+                <td th:text="${profesor.id}"></td>
+                <td th:text="${profesor.nombre}"></td>
+                <td th:text="${profesor.apellido}"></td>
+                <td th:text="${profesor.telefono}"></td>
+                <td th:text="${profesor.correo_electronico}"></td>
+                <td th:text="${profesor.especializacion}"></td>
             </tr>
             </tbody>
         </table>

@@ -3,7 +3,7 @@ package pe.edu.cibertec.escuelafutbol.model.bd;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -14,7 +14,7 @@ public class Alumnos {
     private Integer id;
     private String nombre;
     private String apellido;
-    private Date fecha_nacimiento;
+    private LocalDate fecha_nacimiento;
     private String direccion;
     private String telefono;
 }
