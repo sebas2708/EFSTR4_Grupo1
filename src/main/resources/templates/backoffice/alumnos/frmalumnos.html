@@ -5,13 +5,17 @@
     <title>Title</title>
 </head>
 <body>
+<script th:src="@{/js/web/backoffice/alumnos/frmalumnos.js}" type="text/javascript"></script>
 <nav th:replace="layout::menu"></nav>
 <div class="card">
     <div class="card-header text-bg-danger">
         Mantenimiento Alumnos
     </div>
     <div class="card-body">
-        <table class="table">
+        <button id="btnagregar" type="button" class="btn btn-primary">Agregar</button>
+        <hr />
+        <div id="divmensaje"></div>
+        <table id="tblalumno" class="table">
             <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -23,16 +27,68 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="alumno : ${alumnos}">
+            <tr th:each="alumno : ${listalumnos}">
                 <td th:text="${alumno.id}"></td>
                 <td th:text="${alumno.nombre}"></td>
                 <td th:text="${alumno.apellido}"></td>
                 <td th:text="${alumno.fecha_nacimiento}"></td>
                 <td th:text="${alumno.direccion}"></td>
                 <td th:text="${alumno.telefono}"></td>
+                <td>
+                    <button type="button" class="btn btn-primary btnactualizar"
+                    th:data-alucod="${alumno.id}"
+                        th:data-aluname="${alumno.nombre}"
+                        th:data-alulast="${alumno.apellido}"
+                        th:data-alufec="${alumno.fecha_nacimiento}"
+                        th:data-aludir="${alumno.direccion}"
+                        th:data-alutel="${alumno.telefono}">Actualizar</button>
+                </td>
             </tr>
             </tbody>
         </table>
+    </div>
+</div>
+
+<!-- Modal registro y actualización de Alumno-->
+<div class="modal fade" id="modalalumnos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Alumno</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="txtnomalu"
+                        placeholder="name@example.com">
+                    <label for="txtnomalu">Ingrese nombre del alumno.</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="txtapealu"
+                           placeholder="name@example.com">
+                    <label for="txtapealu">Ingrese apellido del alumno.</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="txtfecalu">
+                    <label for="txtfecalu">Ingrese fecha de nacimiento del alumno.</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="txtdiralu"
+                           placeholder="name@example.com">
+                    <label for="txtdiralu">Ingrese dirección del alumno.</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="txttelalu"
+                           placeholder="name@example.com">
+                    <label for="txttelalu">Ingrese teléfono de contacto.</label>
+                </div>
+                <input type="hidden" id="hddalucod" value="0">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btnguardar">Guardar</button>
+            </div>
+        </div>
     </div>
 </div>
 </body>

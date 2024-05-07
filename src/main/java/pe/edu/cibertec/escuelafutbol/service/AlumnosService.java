@@ -15,4 +15,9 @@ public class AlumnosService implements IAlumnosService{
     public List<Alumnos> listarAlumnos() {
         return alumnosRepository.findAll();
     }
+
+    @Override
+    public void registerAlumnos(Alumnos alumnos) {
+        alumnosRepository.save(alumnos);
+    }
 }

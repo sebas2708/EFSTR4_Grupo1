@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IProfesoresService {
     List<Profesores> listarProfesores();
+    void registerProfesores(Profesores profesores);
 }

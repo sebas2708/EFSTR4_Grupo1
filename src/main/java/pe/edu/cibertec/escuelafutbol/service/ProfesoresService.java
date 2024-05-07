@@ -16,4 +16,9 @@ public class ProfesoresService implements IProfesoresService{
     public List<Profesores> listarProfesores() {
         return profesoresRepository.findAll();
     }
+
+    @Override
+    public void registerProfesores(Profesores profesores) {
+        profesoresRepository.save(profesores);
+    }
 }
