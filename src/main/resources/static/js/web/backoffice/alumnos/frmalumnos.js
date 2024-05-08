@@ -35,7 +35,7 @@ $(document).on("click", "#btnguardar", function(){
         }),
         success: function(resultado){
             if(resultado.respuesta){
-                listarProductos()
+                listarAlumnos()
             }
             alert(resultado.mensaje);
         }
@@ -43,7 +43,7 @@ $(document).on("click", "#btnguardar", function(){
     $("#modalalumnos").modal("hide");
 });
 
-function listarProductos(){
+function listarAlumnos(){
     $.ajax({
         type: "GET",
         url: "/alumnos/list",
@@ -65,7 +65,7 @@ function listarProductos(){
                     `data-alufec="${value.fecha_nacimiento}" `+
                     `data-aludir="${value.direccion}" `+
                     `data-alutel="${value.telefono}">Actualizar `+
-                    `</button></td>`+ // Aquí estaba la coma extra después de `data-alutel`
+                    `</button></td>`+
                 `</tr>`);
             });
         }

@@ -6,7 +6,6 @@ import pe.edu.cibertec.escuelafutbol.model.bd.Profesores;
 import pe.edu.cibertec.escuelafutbol.repository.ProfesoresRepository;
 
 import java.util.List;
-
 @AllArgsConstructor
 @Service
 public class ProfesoresService implements IProfesoresService{

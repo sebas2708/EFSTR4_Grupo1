@@ -6,5 +6,4 @@ import pe.edu.cibertec.escuelafutbol.model.bd.Alumnos;
 
 @Repository
 public interface AlumnosRepository extends JpaRepository<Alumnos, Integer> {
-
 }
