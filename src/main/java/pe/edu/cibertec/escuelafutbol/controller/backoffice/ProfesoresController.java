@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.cibertec.escuelafutbol.model.bd.Equipos;
 import pe.edu.cibertec.escuelafutbol.model.bd.Profesores;
 import pe.edu.cibertec.escuelafutbol.model.dto.request.ProfesoresRequest;
 import pe.edu.cibertec.escuelafutbol.model.dto.response.ProfesoresResponse;
@@ -54,4 +55,9 @@ public class ProfesoresController {
         return  ProfesoresResponse.builder().mensaje(mensaje).respuesta(respuesta).build();
     }
 
+    @GetMapping("/get")
+    @ResponseBody
+    public List<Profesores> listprofesores(){
+        return  iProfesoresService.listarProfesores();
+    }
 }
