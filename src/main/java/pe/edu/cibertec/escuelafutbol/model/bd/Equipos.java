@@ -14,4 +14,5 @@ public class Equipos {
     @ManyToOne
     @JoinColumn(name = "id_entrenador")
     private Profesores entrenador;
+    private Integer nromaximo;
 }

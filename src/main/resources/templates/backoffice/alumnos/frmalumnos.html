@@ -19,6 +19,7 @@
             <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">DNI</th>
                 <th scope="col">Nombres</th>
                 <th scope="col">Apellidos</th>
                 <th scope="col">Fecha de Nacimiento</th>
@@ -29,6 +30,7 @@
             <tbody>
             <tr th:each="alumno : ${listalumnos}">
                 <td th:text="${alumno.id}"></td>
+                <td th:text="${alumno.dni}"></td>
                 <td th:text="${alumno.nombre}"></td>
                 <td th:text="${alumno.apellido}"></td>
                 <td th:text="${alumno.fecha_nacimiento}"></td>
@@ -36,7 +38,8 @@
                 <td th:text="${alumno.telefono}"></td>
                 <td>
                     <button type="button" class="btn btn-primary btnactualizar"
-                    th:data-alucod="${alumno.id}"
+                        th:data-alucod="${alumno.id}"
+                        th:data-aludni="${alumno.dni}"
                         th:data-aluname="${alumno.nombre}"
                         th:data-alulast="${alumno.apellido}"
                         th:data-alufec="${alumno.fecha_nacimiento}"
@@ -58,6 +61,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="txtdnialu"
+                           placeholder="name@example.com">
+                    <label for="txtdnialu">Ingrese DNI del alumno.</label>
+                </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="txtnomalu"
                         placeholder="name@example.com">

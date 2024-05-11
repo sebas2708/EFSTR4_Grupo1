@@ -1,5 +1,6 @@
 $(document).on("click", "#btnagregar", function(){
     $("#txtnomequi").val("");
+    $("#txtmaxequi").val("");
     $("#hddequicod").val("0");
     listarCboEntrenador(0, 0);
 
@@ -8,9 +9,10 @@ $(document).on("click", "#btnagregar", function(){
 
 $(document).on("click", ".btnactualizar", function(){
     $("#txtnomequi").val($(this).attr("data-equinom"));
-    $("#hddequicod").val($(this).attr("data-equicod"));
     $("#cboentrenador").empty();
-    listarCboEntrenador($(this).attr("data-equient"));
+        listarCboEntrenador($(this).attr("data-equient"));
+    $("#txtmaxequi").val($(this).attr("data-equimax"));
+    $("#hddequicod").val($(this).attr("data-equicod"));
     $("#modalequipos").modal("show");
 })
 
@@ -22,7 +24,8 @@ $(document).on("click", "#btnguardar", function(){
         data: JSON.stringify({
             id: $("#hddequicod").val(),
             nombre_equipo: $("#txtnomequi").val(),
-            entrenador: $("#cboentrenador").val()
+            entrenador: $("#cboentrenador").val(),
+            nromaximo: $("#txtmaxequi").val()
         }),
         success: function(resultado){
             if(resultado.respuesta){
@@ -46,10 +49,12 @@ function listarequipos(){
                 `<td>${value.id}</td>`+
                 `<td>${value.nombre_equipo}</td>`+
                 `<td>${value.entrenador.nombre + ' ' + value.entrenador.apellido}</td>`+
+                `<td>${value.nromaximo}</td>`+
                 `<td><button type='button' class='btn btn-primary btnactualizar' `+
-                    `data-libcod="${value.id}" `+
-                    `data-libtit="${value.nombre_equipo}" `+
-                    `data-libtem="${value.entrenador.id}">Actualizar `+
+                    `data-equicod="${value.id}" `+
+                    `data-equinom="${value.nombre_equipo}" `+
+                    `data-equient="${value.entrenador.id}" `+
+                    `data-equimax="${value.nromaximo}">Actualizar `+
                     `</button></td>`+
                 `</tr>`);
             });

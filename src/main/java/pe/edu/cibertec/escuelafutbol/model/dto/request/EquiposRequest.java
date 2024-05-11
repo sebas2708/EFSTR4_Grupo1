@@ -7,4 +7,5 @@ public class EquiposRequest {
     private Integer id;
     private String nombre_equipo;
     private Integer entrenador;
+    private Integer nromaximo;
 }

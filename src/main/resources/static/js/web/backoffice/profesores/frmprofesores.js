@@ -1,4 +1,5 @@
 $(document).on("click", "#btnagregar", function(){
+    $("#txtdnipro").val("");
     $("#txtnompro").val("");
     $("#txtapepro").val("");
     $("#txttelpro").val("");
@@ -10,6 +11,7 @@ $(document).on("click", "#btnagregar", function(){
 })
 
 $(document).on("click", ".btnactualizar", function(){
+    $("#txtdnipro").val($(this).attr("data-prodni"));
     $("#txtnompro").val($(this).attr("data-proname"));
     $("#txtapepro").val($(this).attr("data-prolast"));
     $("#txttelpro").val($(this).attr("data-protel"));
@@ -27,6 +29,7 @@ $(document).on("click", "#btnguardar", function(){
         contentType: "application/json",
         data: JSON.stringify({
             id: $("#hddprocod").val(),
+            dni: $("#txtdnipro").val(),
             nombre: $("#txtnompro").val(),
             apellido: $("#txtapepro").val(),
             telefono: $("#txttelpro").val(),
@@ -53,6 +56,7 @@ function listarProfesores(){
             $.each(resultado, function(index, value){
                 $("#tblprofesor > tbody").append(`<tr>`+
                 `<td>${value.id}</td>`+
+                `<td>${value.dni}</td>`+
                 `<td>${value.nombre}</td>`+
                 `<td>${value.apellido}</td>`+
                 `<td>${value.telefono}</td>`+
@@ -60,6 +64,7 @@ function listarProfesores(){
                 `<td>${value.especializacion}</td>`+
                 `<td><button type='button' class='btn btn-primary btnactualizar' `+
                     `data-procod="${value.id}" `+
+                    `data-prodni="${value.dni}" `+
                     `data-proname="${value.nombre}" `+
                     `data-prolast="${value.apellido}" `+
                     `data-protel="${value.telefono}" `+

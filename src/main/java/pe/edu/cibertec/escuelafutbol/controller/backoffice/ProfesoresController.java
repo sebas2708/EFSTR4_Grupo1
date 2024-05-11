@@ -42,6 +42,7 @@ public class ProfesoresController {
             if (profesoresRequest.getId() > 0){
                 profesores.setId(profesoresRequest.getId());
             }
+            profesores.setDni(profesoresRequest.getDni());
             profesores.setNombre(profesoresRequest.getNombre());
             profesores.setApellido(profesoresRequest.getApellido());
             profesores.setTelefono(profesoresRequest.getTelefono());

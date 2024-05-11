@@ -41,6 +41,7 @@ public class AlumnosController {
             if(alumnosRequest.getId() > 0){
                 alumnos.setId(alumnosRequest.getId());
             }
+            alumnos.setDni(alumnosRequest.getDni());
             alumnos.setNombre(alumnosRequest.getNombre());
             alumnos.setApellido(alumnosRequest.getApellido());
             alumnos.setFecha_nacimiento(alumnosRequest.getFecha_nacimiento());

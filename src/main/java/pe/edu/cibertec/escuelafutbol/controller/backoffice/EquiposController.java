@@ -49,6 +49,7 @@ public class EquiposController {
             Profesores profesores = new Profesores();
             profesores.setId(equiposRequest.getEntrenador());
             equipos.setEntrenador(profesores);
+            equipos.setNromaximo(equiposRequest.getNromaximo());
             iEquiposService.registerEquipos(equipos);
         }catch (Exception ex){
             mensaje = "Equipo no registrado, error en la BD. ";

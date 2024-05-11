@@ -1,4 +1,5 @@
 $(document).on("click", "#btnagregar", function(){
+    $("#txtdnialu").val("");
     $("#txtnomalu").val("");
     $("#txtapealu").val("");
     $("#txtfecalu").val("");
@@ -10,6 +11,7 @@ $(document).on("click", "#btnagregar", function(){
 })
 
 $(document).on("click", ".btnactualizar", function(){
+    $("#txtdnialu").val($(this).attr("data-aludni"));
     $("#txtnomalu").val($(this).attr("data-aluname"));
     $("#txtapealu").val($(this).attr("data-alulast"));
     $("#txtfecalu").val($(this).attr("data-alufec"));
@@ -27,6 +29,7 @@ $(document).on("click", "#btnguardar", function(){
         contentType: "application/json",
         data: JSON.stringify({
             id: $("#hddalucod").val(),
+            dni: $("#txtdnialu").val(),
             nombre: $("#txtnomalu").val(),
             apellido: $("#txtapealu").val(),
             fecha_nacimiento: $("#txtfecalu").val(),
@@ -53,6 +56,7 @@ function listarAlumnos(){
             $.each(resultado, function(index, value){
                 $("#tblalumno > tbody").append(`<tr>`+
                 `<td>${value.id}</td>`+
+                `<td>${value.dni}</td>`+
                 `<td>${value.nombre}</td>`+
                 `<td>${value.apellido}</td>`+
                 `<td>${value.fecha_nacimiento}</td>`+
@@ -60,6 +64,7 @@ function listarAlumnos(){
                 `<td>${value.telefono}</td>`+
                 `<td><button type='button' class='btn btn-primary btnactualizar' `+
                     `data-alucod="${value.id}" `+
+                    `data-alucod="${value.dni}" `+
                     `data-aluname="${value.nombre}" `+
                     `data-alulast="${value.apellido}" `+
                     `data-alufec="${value.fecha_nacimiento}" `+

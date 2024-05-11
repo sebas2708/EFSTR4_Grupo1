@@ -21,6 +21,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nombre de Equipo</th>
                 <th scope="col">Entrenador</th>
+                <th scope="col">Max Alumnos</th>
             </tr>
             </thead>
             <tbody>
@@ -28,11 +29,13 @@
                 <td th:text="${equipo.id}"></td>
                 <td th:text="${equipo.nombre_equipo}"></td>
                 <td th:text="${equipo.entrenador.nombre + ' ' + equipo.entrenador.apellido}"></td>
+                <td th:text="${equipo.nromaximo}"></td>
                 <td>
                     <button type="button" class="btn btn-primary btnactualizar"
                             th:data-equicod="${equipo.id}"
                             th:data-equinom="${equipo.nombre_equipo}"
-                            th:data-equient="${equipo.entrenador.id}">Actualizar</button>
+                            th:data-equient="${equipo.entrenador.id}"
+                            th:data-equimax="${equipo.nromaximo}">Actualizar</button>
                 </td>
             </tr>
             </tbody>
@@ -53,11 +56,15 @@
                     <label for="txtnomequi">Ingrese nombre del equipo.</label>
                     <input type="text" class="form-control" id="txtnomequi"
                            placeholder="Ingrese nombre del equipo.">
-
                 </div>
                 <div class="mb-3">
                     <label for="cboentrenador" class="form-label">Seleccione entrenador.</label>
                     <select id="cboentrenador" class="form-select"></select>
+                </div>
+                <div class="mb-3">
+                    <label for="txtmaxequi">Ingrese el máximo de alumnos.</label>
+                    <input type="text" class="form-control" id="txtmaxequi"
+                           placeholder="Ingrese maximo de alumnos.">
                 </div>
                 <input type="hidden" id="hddequicod" value="0">
             </div>
