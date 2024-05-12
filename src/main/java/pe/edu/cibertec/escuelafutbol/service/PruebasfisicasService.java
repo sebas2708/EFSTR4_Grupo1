@@ -3,7 +3,6 @@ package pe.edu.cibertec.escuelafutbol.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pe.edu.cibertec.escuelafutbol.model.bd.Pruebas_fisicas;
-import pe.edu.cibertec.escuelafutbol.repository.ProfesoresRepository;
 import pe.edu.cibertec.escuelafutbol.repository.PruebasRepository;
 
 import java.util.List;

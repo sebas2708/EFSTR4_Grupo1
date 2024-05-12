@@ -23,9 +23,9 @@ public class PruebasController {
 
     @GetMapping("")
     public String frmpruebas(Model model){
-        model.addAttribute("listapruebas",
+        model.addAttribute("listpruebas",
                 iPruebasfisicasService.listarPruebas());
-        return "backoffice/pruebas/frmprruebas";
+        return "backoffice/pruebas/frmpruebas";
     }
 
     @GetMapping("/list")
