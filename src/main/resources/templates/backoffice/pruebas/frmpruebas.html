@@ -9,10 +9,10 @@
 <nav th:replace="layout::menu"></nav>
 <div class="card">
     <div class="card-header text-bg-danger">
-        Mantenimiento Pruebas
+        Mantenimiento de Pruebas
     </div>
     <div class="card-body">
-        <button id="btnagregar" type="button" class="btn btn-primary">Agregar</button>
+        <button id="btnagregar" type="button" class="btn btn-warning">Agregar Prueba</button>
         <hr />
         <div id="divmensaje"></div>
         <table id="tblpruebas" class="table">
@@ -20,7 +20,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Tipo de prueba</th>
-                <th scope="col">Descrpción</th>
+                <th scope="col">Descripción</th>
             </tr>
             </thead>
             <tbody>
@@ -32,7 +32,7 @@
                     <button type="button" class="btn btn-primary btnactualizar"
                             th:data-pruecod="${prueba.id}"
                             th:data-pruetipo="${prueba.tipo_prueba}"
-                            th:data-pruedesc="${prueba.descripcion}">Actualizar</button>
+                            th:data-pruedesc="${prueba.descripcion}">Actualizar Prueba</button>
                 </td>
             </tr>
             </tbody>
@@ -45,7 +45,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Pruebas</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Prueba</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -59,7 +59,7 @@
                     <input type="text" class="form-control" id="txtdescprue"
                            placeholder="Ingrese descripcion de prueba.">
                 </div>
-                <input type="hidden" id="hddepruecod" value="0">
+                <input type="hidden" id="hddpruecod" value="0">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
