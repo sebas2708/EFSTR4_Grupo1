@@ -64,7 +64,7 @@ function listarAlumnos(){
                 `<td>${value.telefono}</td>`+
                 `<td><button type='button' class='btn btn-primary btnactualizar' `+
                     `data-alucod="${value.id}" `+
-                    `data-alucod="${value.dni}" `+
+                    `data-aludni="${value.dni}" `+
                     `data-aluname="${value.nombre}" `+
                     `data-alulast="${value.apellido}" `+
                     `data-alufec="${value.fecha_nacimiento}" `+

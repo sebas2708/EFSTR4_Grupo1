@@ -25,6 +25,7 @@ public class AlumnosController {
         return "backoffice/alumnos/frmalumnos";
     }
 
+
     @GetMapping("/list")
     @ResponseBody
     public List<Alumnos> listarAlumnos(){

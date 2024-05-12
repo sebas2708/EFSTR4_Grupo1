@@ -2,9 +2,11 @@ package pe.edu.cibertec.escuelafutbol.model.bd;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
+@NoArgsConstructor
 @Entity
+@Data
 @Table(name = "equipos")
 public class Equipos {
     @Id
