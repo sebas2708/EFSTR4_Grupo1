@@ -8,11 +8,11 @@
 <script th:src="@{/js/web/backoffice/pruebas/frmpruebas.js}" type="text/javascript"></script>
 <nav th:replace="layout::menu"></nav>
 <div class="card">
-    <div class="card-header text-bg-danger">
+    <div class="card-header text-bg-danger" style = "text-align: center">
         Mantenimiento de Pruebas
     </div>
     <div class="card-body">
-        <button id="btnagregar" type="button" class="btn btn-warning">Agregar Prueba</button>
+        <button id="btnagregar" type="button" class="btn btn-secondary">Agregar</button>
         <hr />
         <div id="divmensaje"></div>
         <table id="tblpruebas" class="table">
@@ -32,7 +32,7 @@
                     <button type="button" class="btn btn-primary btnactualizar"
                             th:data-pruecod="${prueba.id}"
                             th:data-pruetipo="${prueba.tipo_prueba}"
-                            th:data-pruedesc="${prueba.descripcion}">Actualizar Prueba</button>
+                            th:data-pruedesc="${prueba.descripcion}">Actualizar</button>
                 </td>
             </tr>
             </tbody>

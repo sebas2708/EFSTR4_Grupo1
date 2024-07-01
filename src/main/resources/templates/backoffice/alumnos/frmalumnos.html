@@ -8,11 +8,11 @@
 <script th:src="@{/js/web/backoffice/alumnos/frmalumnos.js}" type="text/javascript"></script>
 <nav th:replace="layout::menu"></nav>
 <div class="card">
-    <div class="card-header text-bg-danger">
+    <div class="card-header text-bg-danger" style = "text-align: center">
         Mantenimiento de Alumnos
     </div>
     <div class="card-body">
-        <button id="btnagregar" type="button" class="btn btn-warning">Agregar Alumno</button>
+        <button id="btnagregar" type="button" class="btn btn-warning">Agregar</button>
         <hr />
         <div id="divmensaje"></div>
         <table id="tblalumno" class="table">
@@ -44,7 +44,7 @@
                         th:data-alulast="${alumno.apellido}"
                         th:data-alufec="${alumno.fecha_nacimiento}"
                         th:data-aludir="${alumno.direccion}"
-                        th:data-alutel="${alumno.telefono}">Actualizar Alumno</button>
+                        th:data-alutel="${alumno.telefono}">Actualizar</button>
                 </td>
             </tr>
             </tbody>

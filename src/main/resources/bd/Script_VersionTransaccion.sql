@@ -53,9 +53,10 @@ CREATE TABLE Pruebas_Fisicas (
 
 -- Tabla de Resultados de Pruebas Físicas
 CREATE TABLE Resultados_Pruebas (
+	ID_Alumno_Prueba INT PRIMARY KEY auto_increment,
     ID_Alumno INT,
     ID_Prueba INT,
-    Resultado VARCHAR(100),
+    Resultados VARCHAR(100),
     Fecha_Prueba DATE,
     FOREIGN KEY (ID_Alumno) REFERENCES Alumnos(ID),
     FOREIGN KEY (ID_Prueba) REFERENCES Pruebas_Fisicas(ID)
@@ -117,19 +118,19 @@ VALUES ('24681359V', 'Javier', 'López', '978654321', 'javier@example.com', 'Ent
 -- select * from profesores p ;
 
 INSERT INTO Equipos (Nombre_Equipo, ID_Entrenador, nromaximo)
-VALUES ('Juvenil A', 1, 2);
+VALUES ('Los Cachitos', 1, 2);
 
 INSERT INTO Equipos (Nombre_Equipo, ID_Entrenador, nromaximo)
-VALUES ('Infantil B', 3, 2);
+VALUES ('Real Lima', 3, 2);
 
 INSERT INTO Equipos (Nombre_Equipo, ID_Entrenador, nromaximo)
-VALUES ('Cadete A', 2, 2);
+VALUES ('Sport Academico', 2, 2);
 
 INSERT INTO Equipos (Nombre_Equipo, ID_Entrenador, nromaximo)
-VALUES ('Benjamín A', 4, 2);
+VALUES ('Frente Norte', 4, 2);
 
 INSERT INTO Equipos (Nombre_Equipo, ID_Entrenador, nromaximo)
-VALUES ('Femenino Sub-17', 5, 2);
+VALUES ('FC Callao', 5, 2);
 
 
 -- select * from equipos e ;
@@ -141,10 +142,10 @@ INSERT INTO Pruebas_Fisicas (Tipo_Prueba, Descripcion) VALUES
 ('Agilidad y velocidad', 'Recorrido de obstáculos para medir la agilidad y velocidad'),
 ('Lanzamiento de balón', 'Distancia alcanzada en el lanzamiento de un balón');
 
-INSERT INTO resultados_pruebas  (ID_Alumno , ID_Prueba , Resultado, Fecha_Prueba)
+INSERT INTO resultados_pruebas  (ID_Alumno , ID_Prueba , Resultados, Fecha_Prueba)
 VALUES (1, 1, 'Aprobado', '2024-05-10');
-INSERT INTO resultados_pruebas  (ID_Alumno , ID_Prueba , Resultado, Fecha_Prueba)
-VALUES (1, 2, 'Aprobado', '2024-04-12');
+INSERT INTO resultados_pruebas  (ID_Alumno , ID_Prueba , Resultados, Fecha_Prueba)
+VALUES (1, 2, 'Por Mejorar', '2024-04-12');
 
 -- select * from resultados_pruebas rp
 
@@ -164,7 +165,7 @@ VALUES (2, 2, '2024-05-10',1);
 -- set activo = 0
 -- where ID_Alumno  = 6
 
-
+DELIMITER $$
 CREATE PROCEDURE obtener_equipo_alumno(id_alumno INT)
 BEGIN
   select a.id, a.nombre ,e.id, e.nombre_equipo
@@ -172,18 +173,30 @@ BEGIN
   inner join alumno_equipo ae on a.ID = ae.id_alumno
   inner join equipos e on ae.id_equipo = e.ID
   WHERE a.ID = id_alumno and ae.activo = 1;
-end;
+end$$
 
+DELIMITER $$
+CREATE PROCEDURE obtener_prueba_alumno(id_prueba INT)
+BEGIN
+  select a.id, a.nombre ,p.id, p.tipo_prueba
+  FROM alumnos a
+  inner join resultados_pruebas rp on a.ID = rp.id_alumno
+  inner join pruebas_fisicas p on rp.id_prueba = p.ID
+  WHERE a.ID = id_prueba;
+end$$
+
+DELIMITER $$
 CREATE PROCEDURE obtener_alumnosxequipo(id_equipo INT)
 BEGIN
   select ae.ID_Alumno_Equipo, ae.ID_Alumno, ae.ID_Equipo, ae.Fecha_Registro, ae.Activo
   FROM alumnos a
   inner join alumno_equipo ae on a.ID = ae.ID_Alumno
   WHERE ae.ID_Equipo = id_equipo and ae.activo = 1;
-end;
+end$$
 
-call obtener_equipo_alumno(5)
-call obtener_alumnosxequipo(2)
+call obtener_equipo_alumno(5);
+call obtener_alumnosxequipo(2);
+call obtener_prueba_alumno(1);
 
 -- update alumno_equipo ae
 -- set Activo = 0
