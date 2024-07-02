@@ -23,4 +23,9 @@ public class AlumnosService implements IAlumnosService{
     public void registerAlumnos(Alumnos alumnos) {
         alumnosRepository.save(alumnos);
     }
+
+    @Override
+    public void deleteAlumnos(Integer id) {
+        alumnosRepository.deleteById(id);
+    }
 }

@@ -46,6 +46,11 @@
                         th:data-aludir="${alumno.direccion}"
                         th:data-alutel="${alumno.telefono}">Actualizar</button>
                 </td>
+                <td>
+                    <button type="button" class="btn btn-danger btneliminar"
+                            th:data-registro-id="${alumno.id}">Eliminar
+                    </button>
+                </td>
             </tr>
             </tbody>
         </table>

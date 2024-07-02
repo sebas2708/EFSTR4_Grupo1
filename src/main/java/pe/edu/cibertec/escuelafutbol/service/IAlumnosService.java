@@ -8,4 +8,6 @@ import java.util.List;
 public interface IAlumnosService {
     List<Alumnos> listarAlumnos();
     void registerAlumnos(Alumnos alumnos);
+
+    void deleteAlumnos(Integer id);
 }

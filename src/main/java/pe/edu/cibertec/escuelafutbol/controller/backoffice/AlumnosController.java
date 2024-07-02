@@ -1,6 +1,7 @@
 package pe.edu.cibertec.escuelafutbol.controller.backoffice;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -51,6 +52,20 @@ public class AlumnosController {
             iAlumnosService.registerAlumnos(alumnos);
         }catch (Exception ex){
             mensaje = "Alumno no registrado, error en la BD. ";
+            respuesta = false;
+        }
+        return AlumnosResponse.builder().mensaje(mensaje).respuesta(respuesta).build();
+    }
+
+    @DeleteMapping("/eliminar/{id}")
+    @ResponseBody
+    public AlumnosResponse eliminarAlumno(@PathVariable Integer id) {
+        String mensaje = "Alumno eliminado correctamente";
+        boolean respuesta = true;
+        try{
+            iAlumnosService.deleteAlumnos(id);
+        }catch (Exception ex){
+            mensaje = "Alumno no eliminado, error en la BD. ";
             respuesta = false;
         }
         return AlumnosResponse.builder().mensaje(mensaje).respuesta(respuesta).build();

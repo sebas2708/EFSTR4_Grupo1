@@ -71,8 +71,38 @@ function listarAlumnos(){
                     `data-aludir="${value.direccion}" `+
                     `data-alutel="${value.telefono}">Actualizar `+
                     `</button></td>`+
+                `<td><button type='button' class='btn btn-danger btneliminar' `+
+                    `data-registro-id="${value.id}">Eliminar `+
+                    `</button></td>`+
                 `</tr>`);
             });
         }
     });
 }
+
+$(document).ready(function() {
+    // Evento click para el botón "Eliminar"
+    $(document).on("click", ".btneliminar", function(){
+        // Obtener el ID del alumno desde el atributo data-registro-id
+        const alumnoId = parseInt($(this).data('registro-id'));
+
+        // Construir la URL con el ID del alumno
+        const url = `/alumnos/eliminar/${alumnoId}`; // Reemplazar con la URL real
+
+        // Enviar solicitud AJAX para eliminar el registro
+        $.ajax({
+            url: url,  // Usar la URL construida
+            method: 'DELETE',
+            success: function(resultado) {
+                if(resultado.respuesta){
+                    listarAlumnos()
+                }
+                alert(resultado.mensaje);
+            },
+            error: function(error) {
+                // Mostrar mensaje de error
+                console.error("Error al eliminar el registro:", error);
+            }
+        });
+    });
+});

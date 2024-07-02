@@ -28,7 +28,8 @@ nav .navbar-nav .nav-link:hover {
 .menu-item-text {
   font-weight: bold; /* Texto en negrita */
   margin-bottom: 5px; /* Margen entre el texto y la imagen */
-  text-align: center
+  text-align: center;
+  color: white;
 }
 
 .menu-item-icon {
