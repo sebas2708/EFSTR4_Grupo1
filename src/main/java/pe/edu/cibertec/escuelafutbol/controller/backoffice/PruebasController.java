@@ -42,7 +42,7 @@ public class PruebasController {
         try{
             Pruebas_fisicas pruebasFisicas = new Pruebas_fisicas();
             if (pruebasfisicasRequest.getId()> 0){
-                pruebasFisicas.setId(pruebasFisicas.getId());
+                pruebasFisicas.setId(pruebasfisicasRequest.getId());
             }
             pruebasFisicas.setTipo_prueba(pruebasfisicasRequest.getTipo_prueba());
             pruebasFisicas.setDescripcion(pruebasfisicasRequest.getDescripcion());
